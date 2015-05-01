@@ -19,6 +19,6 @@ fi
 
 php=`which php`
 
-$php converter.php $infile
+$php bin/run.php $infile
 
 echo -e "${GREEN}Conversion complete.\n${NC}";
