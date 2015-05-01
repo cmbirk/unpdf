@@ -20,6 +20,6 @@ fi
 
 php=`which php`
 
-$php bin/run.php $infile
+$php scripts/run.php $infile
 
 echo -e "${GREEN}Conversion complete.\n${NC}";
