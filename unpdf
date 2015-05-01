@@ -1,15 +1,16 @@
 #!/bin/bash
 
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m'
+
 if [ $# -eq 0 ]
-  then echo "Usage: convert <filename.pdf>"
+  then echo -e "${RED}Usage: convert <filename.pdf>${NC}\n"
   exit
 fi
 
 infile=$1
 outfile=$2
-
-GREEN='\033[0;32m'
-NC='\033[0m'
 
 if [ $# -eq 2 ]
   then echo -e "${GREEN}Converting $infile to $outfile\n${NC}";
