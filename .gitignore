@@ -1,2 +1,8 @@
+# Composer packages
 vendor
+
+# Test files
 test*
+
+# Output files
+out.txt
