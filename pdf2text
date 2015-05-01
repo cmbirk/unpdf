@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+  then echo "Usage: convert <filename.pdf>"
+  exit
+fi
+
+infile=$1
+outfile=$2
+
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+if [ $# -eq 2 ]
+  then echo -e "${GREEN}Converting $infile to $outfile\n${NC}";
+else 
+  echo -e "${GREEN}Converting $infile to out.txt\n${NC}"
+fi
+
+php=`which php`
+
+$php converter.php $infile
+
+echo -e "${GREEN}Conversion complete.\n${NC}";
