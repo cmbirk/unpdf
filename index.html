@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    </head>
+    <body xlmns:ng="http://angularjs.org" id="ng-app" ng-app="unPDF" ng-controller="AppController">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div growl></div>
+        <div class="container">
+            <header>
+                <h1>Un-PDF</h1>
+            </header>    
+            <main class="main" ng-controller="MainController">
+                <section class="upload">
+                    <h1>Upload File:</h1>
+                    <form name="uploadForm">
+                        <input type="file" ng-file-select="onFileSelect($files, $event)">
+                        <div ng-file-drop="onFileSelect($files, $event)" ng-show="dropSupported" class="file-drop">Drop File Here</div>
+                        <div ng-file-drop-available="dropSupported=true" ng-show="!dropSupported">HTML5 Drop File is not supported!</div>
+                        <div class="button" ng-file-select="onFileSelect($files, $event)"></div>
+                        <div ng-show="selectedFiles != null" class="ng-hide"></div>
+                        <button ng-click="clearUpload()" class="btn btn-default">Clear Upload</button>
+                    </form>    
+                </section>
+                
+                <div class="output">
+                    <textarea class="text" ng-model="document.text"></textarea>
+                </div>
+            </main> 
+            <footer>
+                
+            </footer>
+        </div>
+        <!-- Include Third Party Scripts -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+        <!-- Custom Scripts -->
+        <script src="js/app.js"></script>
+        <script src="js/controllers.js"></script>
+    </body>
+</html>
