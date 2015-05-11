@@ -2,14 +2,14 @@ angular.module('unPDF.controllers', []);
 
 angular.module('unPDF.controllers')
   .controller('AppController', function ($scope) {
-
+    console.log("this is the app controller");
   })
-  .controller('MainController', function ($scope, $upload, growl) {
+  .controller('MainController', function ($scope, Upload, growl) {
     $scope.onFileSelect = function ($files, $event) {
       $scope.input = $event.target;
 
       angular.forEach($files, function (file) {
-        $scope.upload = $upload.upload({
+        $scope.upload = Upload.upload({
           url: 'api',
           file: file
         }).progress(function (event) {

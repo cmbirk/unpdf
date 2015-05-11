@@ -1,12 +1,12 @@
 var imports = [
   'unPDF.controllers',
   'angular-growl',
-  'angularFileUpload'
+  'ngFileUpload'
 ];
 
 var app = angular.module('unPDF', imports);
 
-app.config(['growlProvider',
-  function (growlProvider) {
-    growlProvider.globalTimeToLive(5000);
-  }]);
+// app.config(['growlProvider',
+//   function (growlProvider) {
+//     growlProvider.globalTimeToLive(5000);
+//   }]);
