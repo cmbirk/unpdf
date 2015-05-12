@@ -30,12 +30,13 @@
                     <div class="button btn btn-default" ngf-select ngf-change="upload($files)">Upload on file change</div>
                     Drop File:
                     <div ngf-drop ng-model="files" class="drop-box" 
-                        ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
+                        ngf-drag-over-class="dragover" ngf-multiple="false" ngf-allow-dir="false"
                         ngf-accept="'.pdf'">Drop PDF files here</div>
                     <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
                 </section>
-                <div class="queued">
-                    <p>Queued: {{ files | fileName }}</p>
+                <div class="queued" ng-if="downloads.length > 0">
+                    <p>Download: </p>
+                    <div download-link get-data="getBlob(download.text)" ng-repeat="download in downloads">{{ download.name }}</div>
                 </div>
             </main> 
             <footer>
@@ -52,6 +53,7 @@
         <!-- Custom Scripts -->
         <script src="/js/app.js"></script>
         <script src="/js/controllers.js"></script>
+        <script src="/js/directives.js"></script>
         <script src="/js/filters.js"></script>
     </body>
 </html>

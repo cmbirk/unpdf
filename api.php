@@ -7,7 +7,7 @@ try {
 
   if (file_exists($file)) {
     $ret = exec("./unpdf $file");
-    print_f($ret);
+    print_r($ret);
     header('Content-Type: text/plain');
     header("Content-Transfer-Encoding: Binary");
     header("Content-disposition: attachment; filename=\"" . $filename . "\"");

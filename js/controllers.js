@@ -5,16 +5,21 @@ angular.module('unPDF.controllers')
     console.log("this is the app controller");
   })
   .controller('MainController', function ($scope, Upload, growl) {
+    $scope.downloads = [];
+
     function displayProgress(event) {
       var progressPercentage = parseInt(100.0 * event.loaded / event.total, 10);
-      console.log('progress' + progressPercentage + '% ' + event.config.file.name);
+
+      console.log('upload progress ' + progressPercentage);
     }
 
     function onSuccess(data, status, headers, config) {
-      console.log('file ' + config.file.name + ' uploaded.  Response: ' + data);
+      $scope.downloads = [{name: $scope.files[0].name, text: data}];
+      $scope.files = [];
     }
 
     $scope.upload = function (files) {
+      $scope.files = files;
       var i, file;
 
       if (files && files.length) {
@@ -29,5 +34,9 @@ angular.module('unPDF.controllers')
             .success(onSuccess);
         }
       }
+    };
+
+    $scope.getBlob = function (text) {
+      return new Blob([text], {type: "text/plain"});
     };
   });
