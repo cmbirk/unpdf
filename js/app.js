@@ -1,5 +1,6 @@
 var imports = [
   'unPDF.controllers',
+  'unPDF.filters',
   'angular-growl',
   'ngFileUpload'
 ];

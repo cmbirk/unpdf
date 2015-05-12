@@ -5,30 +5,29 @@ angular.module('unPDF.controllers')
     console.log("this is the app controller");
   })
   .controller('MainController', function ($scope, Upload, growl) {
-    $scope.onFileSelect = function ($files, $event) {
-      $scope.input = $event.target;
+    function displayProgress(event) {
+      var progressPercentage = parseInt(100.0 * event.loaded / event.total, 10);
+      console.log('progress' + progressPercentage + '% ' + event.config.file.name);
+    }
 
-      angular.forEach($files, function (file) {
-        $scope.upload = Upload.upload({
-          url: 'api',
-          file: file
-        }).progress(function (event) {
-          //console.log('percent: ' + parseInt(100.0 * event.loaded / event.total));
-        }).success(function (data) {
-          //Download new text file
-        }).error(function (data) {
-          if (data.messages) {
-            angular.forEach(data.messages,
-              function (message) {
-                growl.addErrorMessage(message.text);
-                $scope.errors.push({'text': message.text, 'file': file.name});
-              });
-          } else {
-            growl.addErrorMessage("Unknown error.  Check console for details.");
-          }
+    function onSuccess(data, status, headers, config) {
+      console.log('file ' + config.file.name + ' uploaded.  Response: ' + data);
+    }
 
-          console.error(data);
-        });
-      });
+    $scope.upload = function (files) {
+      var i, file;
+
+      if (files && files.length) {
+        for (i = 0; i < files.length; i++) {
+          file = files[i];
+
+          Upload.upload({
+            url: '/api',
+            file: file
+          })
+            .progress(displayProgress)
+            .success(onSuccess);
+        }
+      }
     };
   });
