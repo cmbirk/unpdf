@@ -1,4 +1,10 @@
+/* line 2, ../sass/style.scss */
+header h1 {
+  text-align: center;
+}
+
+/* line 7, ../sass/style.scss */
 .drop-box {
-  padding:20px;
+  padding: 20px;
   border: 2px dashed #ccc;
 }

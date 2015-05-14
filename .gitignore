@@ -8,3 +8,6 @@ test*
 # Output files
 out.txt
 !example/out.txt
+
+# Cache files
+.sass-cache
