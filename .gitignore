@@ -1,6 +1,5 @@
 # Packages
 vendor
-bower_components
 
 # Test files
 test*
