@@ -7,7 +7,7 @@ angular.module('unPDF.directives', [])
         file: '@file'
       },
       link: function (scope, elm, attrs) {
-        scope.file = scope.file.replace('/\.[A-Za-z0-9]+/i', '.txt');
+        scope.file = scope.file.replace('.pdf', '.txt');
         console.log(scope.file);
         //TODO: Strip .pdf extension and append .txt extension.
         var url = URL.createObjectURL(scope.getUrlData());

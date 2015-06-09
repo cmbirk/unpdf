@@ -2,7 +2,7 @@ angular.module('unPDF.controllers', []);
 
 angular.module('unPDF.controllers')
   .controller('AppController', function ($scope) {
-    console.log("this is the app controller");
+    //Nothing Here
   })
   .controller('MainController', function ($scope, Upload, growl) {
     $scope.downloads = [];
