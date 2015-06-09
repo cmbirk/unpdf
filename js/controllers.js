@@ -27,7 +27,7 @@ angular.module('unPDF.controllers')
           file = files[i];
 
           Upload.upload({
-            url: '/api.php',
+            url: '/api',
             file: file
           })
             .progress(displayProgress)
