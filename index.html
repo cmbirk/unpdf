@@ -38,7 +38,7 @@
                 </section>
                 <div class="queued" ng-if="downloads.length > 0">
                     <p>Download: </p>
-                    <div download-link get-data="getBlob(download.text)" ng-repeat="download in downloads">{{ download.name }}</div>
+                    <div download-link get-data="getBlob(download.text)" file="{{ download.name }}" ng-repeat="download in downloads">{{ download.name }}</div>
                 </div>
             </main> 
             <footer>

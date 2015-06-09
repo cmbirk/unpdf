@@ -3,13 +3,17 @@ angular.module('unPDF.directives', [])
     return {
       restrict: 'A',
       scope: {
-        getUrlData: '&getData'
+        getUrlData: '&getData',
+        file: '@file'
       },
       link: function (scope, elm, attrs) {
+        scope.file = scope.file.replace('/\.[A-Za-z0-9]+/i', '.txt');
+        console.log(scope.file);
+        //TODO: Strip .pdf extension and append .txt extension.
         var url = URL.createObjectURL(scope.getUrlData());
 
         elm.append($compile(
-          '<a class="btn" download="out.txt"' +
+          '<a class="btn" download="' + scope.file + '"' +
             'href="' + url + '">' +
             'Download' +
             '</a>'
