@@ -28,13 +28,14 @@
                 <section class="upload">
                     <h1>Upload File:</h1>
                     <div class="button btn btn-default" ngf-select ngf-change="upload($files)">Upload PDF File</div>
-                    <br><br>
+                    <!-- <br><br>
                     <em>OR</em>
                     <br><br>
                     <div ngf-drop ng-model="files" class="drop-box" 
                         ngf-drag-over-class="dragover" ngf-multiple="false" ngf-allow-dir="false"
                         ngf-accept="'.pdf'">Drop PDF files here</div>
                     <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+                    -->
                 </section>
                 <div class="queued" ng-if="downloads.length > 0">
                     <p>Download: </p>
