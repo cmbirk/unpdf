@@ -1,9 +1,15 @@
-/* line 2, ../sass/style.scss */
+/* line 1, ../sass/style.scss */
+.background {
+  position: absolute;
+  z-index: -1;
+}
+
+/* line 7, ../sass/style.scss */
 header h1 {
   text-align: center;
 }
 
-/* line 7, ../sass/style.scss */
+/* line 12, ../sass/style.scss */
 .drop-box {
   padding: 20px;
   border: 2px dashed #ccc;
